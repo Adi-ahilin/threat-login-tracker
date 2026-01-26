@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from monitor.views import LoginAttemptList  # <--- Importamos nuestra vista
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('api/attempts/', LoginAttemptList.as_view(), name='attempt-list'), # <--- Nueva ruta API
+]                           
